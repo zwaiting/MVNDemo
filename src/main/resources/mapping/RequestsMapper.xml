@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myfirst.dao.IrequestsDao" >
+  <resultMap id="BaseResultMap" type="com.myfirst.entity.Requests" >
+    <id column="REQUEST_ID" property="requestId" jdbcType="INTEGER" />
+    <result column="TRAIN_ORG" property="trainOrg" jdbcType="INTEGER" />
+    <result column="TRAIN_TYPE" property="trainType" jdbcType="VARCHAR" />
+    <result column="IS_EXAM" property="isExam" jdbcType="VARCHAR" />
+    <result column="CERT_TYPE" property="certType" jdbcType="VARCHAR" />
+    <result column="TRAIN_NAME" property="trainName" jdbcType="VARCHAR" />
+    <result column="TRAIN_PURPOSE" property="trainPurpose" jdbcType="VARCHAR" />
+    <result column="TRAIN_EXPERIENCE" property="trainExperience" jdbcType="VARCHAR" />
+    <result column="TRAIN_USER" property="trainUser" jdbcType="VARCHAR" />
+    <result column="START_DATE" property="startDate" jdbcType="TIMESTAMP" />
+    <result column="END_DATE" property="endDate" jdbcType="TIMESTAMP" />
+    <result column="PERIOD_SUM" property="periodSum" jdbcType="DECIMAL" />
+    <result column="TRAIN_AGENCY" property="trainAgency" jdbcType="INTEGER" />
+    <result column="TRAIN_METHOD" property="trainMethod" jdbcType="VARCHAR" />
+    <result column="IS_NO_PLAN" property="isNoPlan" jdbcType="VARCHAR" />
+    <result column="TRAIN_PLAN_DETAIL_ID" property="trainPlanDetailId" jdbcType="INTEGER" />
+    <result column="STATUS" property="status" jdbcType="INTEGER" />
+    <result column="COST_ESTIMATE" property="costEstimate" jdbcType="DECIMAL" />
+    <result column="COST_ACTUAL" property="costActual" jdbcType="DECIMAL" />
+    <result column="PROC_APPLICATION_INST_ID" property="procApplicationInstId" jdbcType="VARCHAR" />
+    <result column="PROC_FEEDBACK_INST_ID" property="procFeedbackInstId" jdbcType="VARCHAR" />
+    <result column="IS_ORG_PER" property="isOrgPer" jdbcType="VARCHAR" />
+    <result column="APPLY_PERSON_ID" property="applyPersonId" jdbcType="INTEGER" />
+    <result column="BUSSI_GROUP_ID" property="bussiGroupId" jdbcType="INTEGER" />
+    <result column="NOTICE_MAIL" property="noticeMail" jdbcType="INTEGER" />
+
+    <collection property="courseList" ofType="com.myfirst.entity.Course" >
+      <id column="REQ_COURSE_ID" property="reqCourseId" jdbcType="INTEGER" />
+      <result column="REQUEST__ID" property="requestId" jdbcType="INTEGER" />
+      <result column="DISPLAY_ORDER" property="displayOrder" jdbcType="INTEGER" />
+      <result column="COURSE_NAME" property="courseName" jdbcType="VARCHAR" />
+      <result column="TRAIN_PLACE" property="trainPlace" jdbcType="VARCHAR" />
+      <result column="LECTURE" property="lecture" jdbcType="VARCHAR" />
+      <result column="BEGIN_DATE" property="beginDate" jdbcType="TIMESTAMP" />
+      <result column="END_DATE" property="endDate" jdbcType="TIMESTAMP" />
+      <result column="PERIOD_SUM" property="periodSum" jdbcType="DECIMAL" />
+      <result column="COST_ACTUAL" property="costActual" jdbcType="DECIMAL" />
+      <result column="APPLY_END_DATE" property="applyEndDate" jdbcType="TIMESTAMP" />
+      <result column="SIGN_TIMES" property="signTimes" jdbcType="INTEGER" />
+      <result column="EVALUATE_TEMPLATE" property="evaluateTemplate" jdbcType="INTEGER" />
+      <result column="EVALUATE_START_DATE" property="evaluateStartDate" jdbcType="TIMESTAMP" />
+      <result column="EVALUATE_END_DATE" property="evaluateEndDate" jdbcType="TIMESTAMP" />
+      <result column="DISTRIBUTE_END_DATE" property="distributeEndDate" jdbcType="TIMESTAMP" />
+      <result column="DEAL_END_DATE" property="dealEndDate" jdbcType="TIMESTAMP" />
+      <result column="CONDITION" property="condition" jdbcType="VARCHAR" />
+      <result column="DISSTATUS" property="disstatus" jdbcType="VARCHAR" />
+      <result column="STATUS" property="status" jdbcType="INTEGER" />
+    </collection>
+
+  </resultMap>
+
+  <resultMap id="BaseResultMap1" type="com.myfirst.entity.Requests" >
+    <id column="REQUEST_ID" property="requestId" jdbcType="INTEGER" />
+    <result column="TRAIN_ORG" property="trainOrg" jdbcType="INTEGER" />
+    <result column="TRAIN_TYPE" property="trainType" jdbcType="VARCHAR" />
+    <result column="IS_EXAM" property="isExam" jdbcType="VARCHAR" />
+    <result column="CERT_TYPE" property="certType" jdbcType="VARCHAR" />
+    <result column="TRAIN_NAME" property="trainName" jdbcType="VARCHAR" />
+    <result column="TRAIN_PURPOSE" property="trainPurpose" jdbcType="VARCHAR" />
+    <result column="TRAIN_EXPERIENCE" property="trainExperience" jdbcType="VARCHAR" />
+    <result column="TRAIN_USER" property="trainUser" jdbcType="VARCHAR" />
+    <result column="START_DATE" property="startDate" jdbcType="TIMESTAMP" />
+    <result column="END_DATE" property="endDate" jdbcType="TIMESTAMP" />
+    <result column="PERIOD_SUM" property="periodSum" jdbcType="DECIMAL" />
+    <result column="TRAIN_AGENCY" property="trainAgency" jdbcType="INTEGER" />
+    <result column="TRAIN_METHOD" property="trainMethod" jdbcType="VARCHAR" />
+    <result column="IS_NO_PLAN" property="isNoPlan" jdbcType="VARCHAR" />
+    <result column="TRAIN_PLAN_DETAIL_ID" property="trainPlanDetailId" jdbcType="INTEGER" />
+    <result column="STATUS" property="status" jdbcType="INTEGER" />
+    <result column="COST_ESTIMATE" property="costEstimate" jdbcType="DECIMAL" />
+    <result column="COST_ACTUAL" property="costActual" jdbcType="DECIMAL" />
+    <result column="PROC_APPLICATION_INST_ID" property="procApplicationInstId" jdbcType="VARCHAR" />
+    <result column="PROC_FEEDBACK_INST_ID" property="procFeedbackInstId" jdbcType="VARCHAR" />
+    <result column="IS_ORG_PER" property="isOrgPer" jdbcType="VARCHAR" />
+    <result column="APPLY_PERSON_ID" property="applyPersonId" jdbcType="INTEGER" />
+    <result column="BUSSI_GROUP_ID" property="bussiGroupId" jdbcType="INTEGER" />
+    <result column="NOTICE_MAIL" property="noticeMail" jdbcType="INTEGER" />
+    <collection property="courseList" column="REQUEST_ID" ofType="Student"
+                select="com.myfirst.dao.IrequestsDao.select2"></collection>
+  </resultMap>
+
+  <resultMap id="BaseCourseMap2" type="com.myfirst.entity.Course" >
+    <id column="REQ_COURSE_ID" property="reqCourseId" jdbcType="INTEGER" />
+    <result column="REQUEST__ID" property="requestId" jdbcType="INTEGER" />
+    <result column="DISPLAY_ORDER" property="displayOrder" jdbcType="INTEGER" />
+    <result column="COURSE_NAME" property="courseName" jdbcType="VARCHAR" />
+    <result column="TRAIN_PLACE" property="trainPlace" jdbcType="VARCHAR" />
+    <result column="LECTURE" property="lecture" jdbcType="VARCHAR" />
+    <result column="BEGIN_DATE" property="beginDate" jdbcType="TIMESTAMP" />
+    <result column="END_DATE" property="endDate" jdbcType="TIMESTAMP" />
+    <result column="PERIOD_SUM" property="periodSum" jdbcType="DECIMAL" />
+    <result column="COST_ACTUAL" property="costActual" jdbcType="DECIMAL" />
+    <result column="APPLY_END_DATE" property="applyEndDate" jdbcType="TIMESTAMP" />
+    <result column="SIGN_TIMES" property="signTimes" jdbcType="INTEGER" />
+    <result column="EVALUATE_TEMPLATE" property="evaluateTemplate" jdbcType="INTEGER" />
+    <result column="EVALUATE_START_DATE" property="evaluateStartDate" jdbcType="TIMESTAMP" />
+    <result column="EVALUATE_END_DATE" property="evaluateEndDate" jdbcType="TIMESTAMP" />
+    <result column="DISTRIBUTE_END_DATE" property="distributeEndDate" jdbcType="TIMESTAMP" />
+    <result column="DEAL_END_DATE" property="dealEndDate" jdbcType="TIMESTAMP" />
+    <result column="CONDITION" property="condition" jdbcType="VARCHAR" />
+    <result column="DISSTATUS" property="disstatus" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="INTEGER" />
+  </resultMap>
+
+  <select id="select1" resultMap="BaseResultMap1" parameterType="java.lang.Integer">
+    SELECT  REQUEST_ID, TRAIN_ORG, TRAIN_TYPE, IS_EXAM, CERT_TYPE, TRAIN_NAME, TRAIN_PURPOSE,
+    TRAIN_EXPERIENCE, TRAIN_USER, START_DATE, END_DATE, PERIOD_SUM, TRAIN_AGENCY, TRAIN_METHOD,
+    IS_NO_PLAN, TRAIN_PLAN_DETAIL_ID, `STATUS`, COST_ESTIMATE, COST_ACTUAL, PROC_APPLICATION_INST_ID,
+    PROC_FEEDBACK_INST_ID, IS_ORG_PER, APPLY_PERSON_ID, BUSSI_GROUP_ID, NOTICE_MAIL FROM per_train_request
+    WHERE request_Id = #{requestId,jdbcType=INTEGER}
+  </select>
+
+  <select id="select2" resultMap="BaseCourseMap2" parameterType="java.lang.Integer">
+    SELECT REQ_COURSE_ID, REQUEST__ID, DISPLAY_ORDER, COURSE_NAME, TRAIN_PLACE, LECTURE, BEGIN_DATE,
+    END_DATE, PERIOD_SUM, COST_ACTUAL, APPLY_END_DATE, SIGN_TIMES, EVALUATE_TEMPLATE,
+    EVALUATE_START_DATE, EVALUATE_END_DATE, DISTRIBUTE_END_DATE, DEAL_END_DATE,`CONDITION`,
+    DISSTATUS, STATUS FROM per_train_req_course WHERE REQUEST__ID = #{requestId,jdbcType=INTEGER}
+
+  </select>
+
+  <sql id="Base_Column_List" >
+    REQUEST_ID, TRAIN_ORG, TRAIN_TYPE, IS_EXAM, CERT_TYPE, TRAIN_NAME, TRAIN_PURPOSE, 
+    TRAIN_EXPERIENCE, TRAIN_USER, START_DATE, t.END_DATE, t.PERIOD_SUM, TRAIN_AGENCY, TRAIN_METHOD,
+    IS_NO_PLAN, TRAIN_PLAN_DETAIL_ID, t.STATUS, COST_ESTIMATE, t.COST_ACTUAL, PROC_APPLICATION_INST_ID,
+    PROC_FEEDBACK_INST_ID, IS_ORG_PER, APPLY_PERSON_ID, BUSSI_GROUP_ID, NOTICE_MAIL,
+    REQ_COURSE_ID, REQUEST__ID, DISPLAY_ORDER, COURSE_NAME, TRAIN_PLACE, LECTURE, BEGIN_DATE,
+    t1.END_DATE, t1.PERIOD_SUM, t1.COST_ACTUAL, APPLY_END_DATE, SIGN_TIMES, EVALUATE_TEMPLATE,
+    EVALUATE_START_DATE, EVALUATE_END_DATE, DISTRIBUTE_END_DATE, DEAL_END_DATE, t1.CONDITION,
+    DISSTATUS, t1.STATUS
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from per_train_request t LEFT JOIN per_train_req_course t1 ON  t.request_id = t1.request__id
+    where REQUEST_ID = #{requestId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from per_train_request
+    where REQUEST_ID = #{requestId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.myfirst.entity.Request" >
+    insert into per_train_request (REQUEST_ID, TRAIN_ORG, TRAIN_TYPE, 
+      IS_EXAM, CERT_TYPE, TRAIN_NAME, 
+      TRAIN_PURPOSE, TRAIN_EXPERIENCE, TRAIN_USER, 
+      START_DATE, END_DATE, PERIOD_SUM, 
+      TRAIN_AGENCY, TRAIN_METHOD, IS_NO_PLAN, 
+      TRAIN_PLAN_DETAIL_ID, STATUS, COST_ESTIMATE, 
+      COST_ACTUAL, PROC_APPLICATION_INST_ID, PROC_FEEDBACK_INST_ID, 
+      IS_ORG_PER, APPLY_PERSON_ID, BUSSI_GROUP_ID, 
+      NOTICE_MAIL)
+    values (#{requestId,jdbcType=INTEGER}, #{trainOrg,jdbcType=INTEGER}, #{trainType,jdbcType=VARCHAR}, 
+      #{isExam,jdbcType=VARCHAR}, #{certType,jdbcType=VARCHAR}, #{trainName,jdbcType=VARCHAR}, 
+      #{trainPurpose,jdbcType=VARCHAR}, #{trainExperience,jdbcType=VARCHAR}, #{trainUser,jdbcType=VARCHAR}, 
+      #{startDate,jdbcType=TIMESTAMP}, #{endDate,jdbcType=TIMESTAMP}, #{periodSum,jdbcType=DECIMAL}, 
+      #{trainAgency,jdbcType=INTEGER}, #{trainMethod,jdbcType=VARCHAR}, #{isNoPlan,jdbcType=VARCHAR}, 
+      #{trainPlanDetailId,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, #{costEstimate,jdbcType=DECIMAL}, 
+      #{costActual,jdbcType=DECIMAL}, #{procApplicationInstId,jdbcType=VARCHAR}, #{procFeedbackInstId,jdbcType=VARCHAR}, 
+      #{isOrgPer,jdbcType=VARCHAR}, #{applyPersonId,jdbcType=INTEGER}, #{bussiGroupId,jdbcType=INTEGER}, 
+      #{noticeMail,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.myfirst.entity.Request" useGeneratedKeys="true" keyProperty="requestId">
+    insert into per_train_request
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="requestId != null" >
+        REQUEST_ID,
+      </if>
+      <if test="trainOrg != null" >
+        TRAIN_ORG,
+      </if>
+      <if test="trainType != null" >
+        TRAIN_TYPE,
+      </if>
+      <if test="isExam != null" >
+        IS_EXAM,
+      </if>
+      <if test="certType != null" >
+        CERT_TYPE,
+      </if>
+      <if test="trainName != null" >
+        TRAIN_NAME,
+      </if>
+      <if test="trainPurpose != null" >
+        TRAIN_PURPOSE,
+      </if>
+      <if test="trainExperience != null" >
+        TRAIN_EXPERIENCE,
+      </if>
+      <if test="trainUser != null" >
+        TRAIN_USER,
+      </if>
+      <if test="startDate != null" >
+        START_DATE,
+      </if>
+      <if test="endDate != null" >
+        END_DATE,
+      </if>
+      <if test="periodSum != null" >
+        PERIOD_SUM,
+      </if>
+      <if test="trainAgency != null" >
+        TRAIN_AGENCY,
+      </if>
+      <if test="trainMethod != null" >
+        TRAIN_METHOD,
+      </if>
+      <if test="isNoPlan != null" >
+        IS_NO_PLAN,
+      </if>
+      <if test="trainPlanDetailId != null" >
+        TRAIN_PLAN_DETAIL_ID,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="costEstimate != null" >
+        COST_ESTIMATE,
+      </if>
+      <if test="costActual != null" >
+        COST_ACTUAL,
+      </if>
+      <if test="procApplicationInstId != null" >
+        PROC_APPLICATION_INST_ID,
+      </if>
+      <if test="procFeedbackInstId != null" >
+        PROC_FEEDBACK_INST_ID,
+      </if>
+      <if test="isOrgPer != null" >
+        IS_ORG_PER,
+      </if>
+      <if test="applyPersonId != null" >
+        APPLY_PERSON_ID,
+      </if>
+      <if test="bussiGroupId != null" >
+        BUSSI_GROUP_ID,
+      </if>
+      <if test="noticeMail != null" >
+        NOTICE_MAIL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="requestId != null" >
+        #{requestId,jdbcType=INTEGER},
+      </if>
+      <if test="trainOrg != null" >
+        #{trainOrg,jdbcType=INTEGER},
+      </if>
+      <if test="trainType != null" >
+        #{trainType,jdbcType=VARCHAR},
+      </if>
+      <if test="isExam != null" >
+        #{isExam,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null" >
+        #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="trainName != null" >
+        #{trainName,jdbcType=VARCHAR},
+      </if>
+      <if test="trainPurpose != null" >
+        #{trainPurpose,jdbcType=VARCHAR},
+      </if>
+      <if test="trainExperience != null" >
+        #{trainExperience,jdbcType=VARCHAR},
+      </if>
+      <if test="trainUser != null" >
+        #{trainUser,jdbcType=VARCHAR},
+      </if>
+      <if test="startDate != null" >
+        #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null" >
+        #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="periodSum != null" >
+        #{periodSum,jdbcType=DECIMAL},
+      </if>
+      <if test="trainAgency != null" >
+        #{trainAgency,jdbcType=INTEGER},
+      </if>
+      <if test="trainMethod != null" >
+        #{trainMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="isNoPlan != null" >
+        #{isNoPlan,jdbcType=VARCHAR},
+      </if>
+      <if test="trainPlanDetailId != null" >
+        #{trainPlanDetailId,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="costEstimate != null" >
+        #{costEstimate,jdbcType=DECIMAL},
+      </if>
+      <if test="costActual != null" >
+        #{costActual,jdbcType=DECIMAL},
+      </if>
+      <if test="procApplicationInstId != null" >
+        #{procApplicationInstId,jdbcType=VARCHAR},
+      </if>
+      <if test="procFeedbackInstId != null" >
+        #{procFeedbackInstId,jdbcType=VARCHAR},
+      </if>
+      <if test="isOrgPer != null" >
+        #{isOrgPer,jdbcType=VARCHAR},
+      </if>
+      <if test="applyPersonId != null" >
+        #{applyPersonId,jdbcType=INTEGER},
+      </if>
+      <if test="bussiGroupId != null" >
+        #{bussiGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="noticeMail != null" >
+        #{noticeMail,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.myfirst.entity.Request" >
+    update per_train_request
+    <set >
+      <if test="trainOrg != null" >
+        TRAIN_ORG = #{trainOrg,jdbcType=INTEGER},
+      </if>
+      <if test="trainType != null" >
+        TRAIN_TYPE = #{trainType,jdbcType=VARCHAR},
+      </if>
+      <if test="isExam != null" >
+        IS_EXAM = #{isExam,jdbcType=VARCHAR},
+      </if>
+      <if test="certType != null" >
+        CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      </if>
+      <if test="trainName != null" >
+        TRAIN_NAME = #{trainName,jdbcType=VARCHAR},
+      </if>
+      <if test="trainPurpose != null" >
+        TRAIN_PURPOSE = #{trainPurpose,jdbcType=VARCHAR},
+      </if>
+      <if test="trainExperience != null" >
+        TRAIN_EXPERIENCE = #{trainExperience,jdbcType=VARCHAR},
+      </if>
+      <if test="trainUser != null" >
+        TRAIN_USER = #{trainUser,jdbcType=VARCHAR},
+      </if>
+      <if test="startDate != null" >
+        START_DATE = #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null" >
+        END_DATE = #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="periodSum != null" >
+        PERIOD_SUM = #{periodSum,jdbcType=DECIMAL},
+      </if>
+      <if test="trainAgency != null" >
+        TRAIN_AGENCY = #{trainAgency,jdbcType=INTEGER},
+      </if>
+      <if test="trainMethod != null" >
+        TRAIN_METHOD = #{trainMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="isNoPlan != null" >
+        IS_NO_PLAN = #{isNoPlan,jdbcType=VARCHAR},
+      </if>
+      <if test="trainPlanDetailId != null" >
+        TRAIN_PLAN_DETAIL_ID = #{trainPlanDetailId,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="costEstimate != null" >
+        COST_ESTIMATE = #{costEstimate,jdbcType=DECIMAL},
+      </if>
+      <if test="costActual != null" >
+        COST_ACTUAL = #{costActual,jdbcType=DECIMAL},
+      </if>
+      <if test="procApplicationInstId != null" >
+        PROC_APPLICATION_INST_ID = #{procApplicationInstId,jdbcType=VARCHAR},
+      </if>
+      <if test="procFeedbackInstId != null" >
+        PROC_FEEDBACK_INST_ID = #{procFeedbackInstId,jdbcType=VARCHAR},
+      </if>
+      <if test="isOrgPer != null" >
+        IS_ORG_PER = #{isOrgPer,jdbcType=VARCHAR},
+      </if>
+      <if test="applyPersonId != null" >
+        APPLY_PERSON_ID = #{applyPersonId,jdbcType=INTEGER},
+      </if>
+      <if test="bussiGroupId != null" >
+        BUSSI_GROUP_ID = #{bussiGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="noticeMail != null" >
+        NOTICE_MAIL = #{noticeMail,jdbcType=INTEGER},
+      </if>
+    </set>
+    where REQUEST_ID = #{requestId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.myfirst.entity.Request" >
+    update per_train_request
+    set TRAIN_ORG = #{trainOrg,jdbcType=INTEGER},
+      TRAIN_TYPE = #{trainType,jdbcType=VARCHAR},
+      IS_EXAM = #{isExam,jdbcType=VARCHAR},
+      CERT_TYPE = #{certType,jdbcType=VARCHAR},
+      TRAIN_NAME = #{trainName,jdbcType=VARCHAR},
+      TRAIN_PURPOSE = #{trainPurpose,jdbcType=VARCHAR},
+      TRAIN_EXPERIENCE = #{trainExperience,jdbcType=VARCHAR},
+      TRAIN_USER = #{trainUser,jdbcType=VARCHAR},
+      START_DATE = #{startDate,jdbcType=TIMESTAMP},
+      END_DATE = #{endDate,jdbcType=TIMESTAMP},
+      PERIOD_SUM = #{periodSum,jdbcType=DECIMAL},
+      TRAIN_AGENCY = #{trainAgency,jdbcType=INTEGER},
+      TRAIN_METHOD = #{trainMethod,jdbcType=VARCHAR},
+      IS_NO_PLAN = #{isNoPlan,jdbcType=VARCHAR},
+      TRAIN_PLAN_DETAIL_ID = #{trainPlanDetailId,jdbcType=INTEGER},
+      STATUS = #{status,jdbcType=INTEGER},
+      COST_ESTIMATE = #{costEstimate,jdbcType=DECIMAL},
+      COST_ACTUAL = #{costActual,jdbcType=DECIMAL},
+      PROC_APPLICATION_INST_ID = #{procApplicationInstId,jdbcType=VARCHAR},
+      PROC_FEEDBACK_INST_ID = #{procFeedbackInstId,jdbcType=VARCHAR},
+      IS_ORG_PER = #{isOrgPer,jdbcType=VARCHAR},
+      APPLY_PERSON_ID = #{applyPersonId,jdbcType=INTEGER},
+      BUSSI_GROUP_ID = #{bussiGroupId,jdbcType=INTEGER},
+      NOTICE_MAIL = #{noticeMail,jdbcType=INTEGER}
+    where REQUEST_ID = #{requestId,jdbcType=INTEGER}
+  </update>
+</mapper>
