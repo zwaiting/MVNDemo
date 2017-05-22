@@ -16,6 +16,7 @@ public class test {
 	public static void main(String[] args) {
 
 		DecimalFormat decimalFormat = new DecimalFormat("0.00");
+		System.out.println("测试git修改");
 		System.out.println(0.0D/0.0D*100);
 		System.out.println(decimalFormat.format(0.0D/0.0D*100));
 	}
